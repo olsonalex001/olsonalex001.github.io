@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alex Olson • Engineering Projects</title>
+  <meta name="description" content="A scroll-through portfolio of engineering projects by Alex Olson." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --card: #121826;
+      --text: #e8eefc;
+      --muted: #b7c0d8;
+      --accent: #4f8cff;
+      --accent-2: #3bd4ae;
+      --border: #1c2437;
+      --shadow: 0 10px 30px rgba(0,0,0,0.3);
+      --radius: 14px;
+      --gap: 20px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:focus { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+    img { display: block; max-width: 100%; height: auto; border-radius: 10px; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: linear-gradient(180deg, rgba(11,14,20,0.85), rgba(11,14,20,0.6) 80%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 16px 20px; }
+   { margin: 0; font-size: 20px; letter-spacing: 0.3px; }
+    .brand nav { display: flex; gap: 14px; }
+    .tag { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: 13px; cursor: pointer; background: transparent; }
+    .tag.active { border-color: var(--accent); color: var(--text); }
+
+    .hero { padding: 40px 20px 10px; }
+    .hero h2 { margin: 6px 0 10px; font-size: 34px; line-height: 1.15; }
+    .hero p { margin: 0; color: var(--muted); max-width: 780px; font-size: 16px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gap);
+      padding: 24px 20px 40px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, #121826, #0e1524);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); border-color: #2a3653; }
+    .card .media { aspect-ratio: 16/9; background: #0b0e14; overflow: hidden; }
+    .card .body { padding: 16px; }
+    .card h3 { margin: 2px 0 8px; font-size: 20px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .chip { font-size: 12px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .desc { color: var(--muted); font-size: 15px; }
+    .links { margin-top: 12px; display: flex; gap: 12px; }
+    .links a { font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 24px 20px 80px;
+      text-align: center;
+    }
+
+    @media (min-width: 720px) {
+      .card { grid-column: span 6; }
+    }
+    @media (min-width: 1024px) {
+      .card { grid-column: span 4; }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Site header">
+    <div class="wrap brand">
+      <h1>Alex Olson</h1>
+      <nav aria-label="Project filters">
+        <button class="tag active" data-filter="all" aria-pressed="true">All</button>
+        <button class="tag" data-filter="mechanical">Mechanical</button>
+        <button class="tag" data-filter="electrical">Electrical</button>
+        <button class="tag" data-filter="software">Software</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="intro-title">
+      <h2 id="intro-title">Engineering Projects</h2>
+      <p>Here are selected projects from coursework, clubs, and independent builds. Click a project to see the repo, report, or demo video.</p>
+    </section>
+
+    <section class="grid" aria-label="Project gallery" id="projects">
+      <!-- ====== PROJECT CARD TEMPLATE ====== -->
+      <!-- Duplicate .card blocks for each project and update fields -->
+
+      <article class="card" data-tags="mechanical">
+        https://example.com/your-link
+          images/cnc-fixture.webp
+        </a>
+        <div class="body">
+          <h3>CNC Fixture Design</h3>
+          <div class="meta">
+            <span class="chip">Fusion 360</span>
+            <span class="chip">DFMA</span>
+            <span class="chip">CNC</span>
+          </div>
+          <p class="desc">Designed and machined a modular fixture to reduce setup time by 35%. Validated stiffness via FEA and test cuts.</p>
+          <div class="links">
+            https://github.com/yourname/cnc-fixtureRepo</a>
+            docs/cnc-report.pdfReport</a>
+            https://youtu.be/your-demoDemo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="electrical">
+        https://example.com/your-link
+          images/sdr-spectrum.webp
+        </a>
+        <div class="body">
+          <h3>Software-Defined Radio Scanner</h3>
+          <div class="meta">
+            <span class="chip">RTL-SDR</span>
+            <span class="chip">Python</span>
+            <span class="chip">DSP</span>
+          </div>
+          <p class="desc">Implemented FM demodulation pipeline; built a Python GUI for tuning and recording, with band scanning & bookmarking.</p>
+          <div class="links">
+            https://github.com/yourname/sdr-scannerRepo</a>
+            docs/sdr-notes.pdfNotes</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="software">
+        https://example.com/your-link
+          images/robot-path.webp
+        </a>
+        <div class="body">
+          <h3>Robot Path Planning (A*)</h3>
+          <div class="meta">
+            <span class="chip">A*</span>
+            <span class="chip">C++</span>
+            <span class="chip">ROS</span>
+          </div>
+          <p class="desc">Built a grid-based planner with obstacle inflation and tie-breaking heuristics; compared runtime vs Dijkstra.</p>
+          <div class="links">
+            https://github.com/yourname/a-star-plannerRepo</a>
+            docs/planner-report.pdfReport</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add more .card blocks as needed -->
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© <span id="year"></span> Alex Olson • mailto:alex@example.comalex@example.com</a></p>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Filter logic
+    const buttons = document.querySelectorAll('.tag');
+    const cards = document.querySelectorAll('.card');
+
+    function setActive(btn) {
+      buttons.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    function applyFilter(key) {
+      cards.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').split(',').map(t => t.trim());
+        const match = key === 'all' || tags.includes(key);
+        card.style.display = match ? '' : 'none';
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-filter');
+        setActive(btn);
+        applyFilter(key);
+      });
+    });
+  </script>
+</body>
+</html>
