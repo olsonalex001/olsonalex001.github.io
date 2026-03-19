@@ -6,39 +6,69 @@
   <title>Alex Olson – Engineering Projects</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      background: #f5f5f5;
-    }
+  /* Page base */
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    background: #f5f5f5;
+    color: #222;
+  }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #222;
-    }
+  /* Page title */
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+  }
 
-    
-    
-.project img {
-  width: 250px;        /* sets the width */
-  height: auto;        /* keeps the image from stretching */
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-right: 10px;
-  display: inline-block;      /* puts images on their own lines */
-}
+  /* Project card */
+  .project {
+    background: #ffffff;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
 
+  .project h2 {
+    margin-top: 0;
+    color: #111;
+  }
 
+  .project p {
+    margin: 0 0 12px;
+  }
 
-    .project h2 {
-      margin-top: 0;
-      color: #111;
-    }
-  </style>
+  /* --- Images side-by-side row --- */
+  .img-row {
+    display: flex;          /* put images in a row */
+    gap: 12px;              /* space between images */
+    flex-wrap: wrap;        /* wrap on small screens */
+    margin-top: 10px;
+  }
+
+  /* Image sizing inside rows */
+  .img-row img {
+    width: 220px;           /* adjust: 180–260px */
+    height: auto;           /* keep aspect ratio */
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Default image safety: never overflow container */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Optional: slightly larger content width on big screens */
+  @media (min-width: 1000px) {
+    body { max-width: 900px; }
+  }
+</style>
 </head>
 
 <body>
@@ -60,7 +90,8 @@
       and ladder logic programming.
     </p>
     
-<img src="PLC1.jpeg" alt="PLC Project Image">
+<div class="img-row">
+  <img src="PLC1.jpeg" alt="PLC Project Image">
   <img src="PLC2.jpeg" alt="PLC Project Image">
   </div>
   
